@@ -52,6 +52,7 @@ MonoBehaviour:
     - LeanCommon
     - LeanGUI
     - LeanTransition
+    - MCPForUnity.Runtime
     - ParticleImage
     - ToonyColorsPro.Runtime
     - ToonyColorsPro2.Demo

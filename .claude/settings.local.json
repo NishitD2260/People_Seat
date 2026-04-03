@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"C:/Users/user/Desktop/Nishit/Projects/People_Seat/Assets/Game Assets/Scripts/Data\")",
+      "Bash(mkdir -p \"C:/Users/user/Desktop/Nishit/Projects/People_Seat/Assets/Game Assets/Scripts/Managers\")",
+      "Bash(mkdir -p \"C:/Users/user/Desktop/Nishit/Projects/People_Seat/Assets/Game Assets/Scripts/Components\")",
+      "Bash(mkdir -p \"C:/Users/user/Desktop/Nishit/Projects/People_Seat/Assets/Game Assets/Scripts/Controllers\")",
+      "Bash(mkdir -p \"C:/Users/user/Desktop/Nishit/Projects/People_Seat/Assets/Game Assets/Scripts/Editor\")",
+      "mcp__unityMCP__manage_scene",
+      "mcp__unityMCP__manage_editor",
+      "mcp__coplay-mcp__get_unity_editor_state",
+      "mcp__coplay-mcp__list_game_objects_in_hierarchy",
+      "mcp__coplay-mcp__list_unity_project_roots"
+    ]
+  }
+}

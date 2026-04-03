@@ -7,4 +7,5 @@ public class LevelSO : ScriptableObject
 {
     public LevelType LevelType;
     public List<BoosterReward> BoosterRewardList;
+    public PeopleSeatLevelConfig PeopleSeatConfig;
 }

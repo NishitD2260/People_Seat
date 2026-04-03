@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Level-2
   m_EditorClassIdentifier: 
   LevelType: 2
-  CurrencyRewardList:
-  - currency: 0
-    amount: 0
   BoosterRewardList: []
+  PeopleSeatConfig:
+    gridData:
+      totalRows: 0
+      seatsPerSide: 0
+      dividerAfterRows: 
+      seats: []
+    lanes: []
+    waitingAreaCapacity: 10

@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4877dd648f3ec4247bcabe98a00cd21c, type: 3}
+  m_Name: ColorThemeConfig
+  m_EditorClassIdentifier: 
+  mappings:
+  - color: 1
+    material: {fileID: 2100000, guid: 364315a405c51dc44a6e10c361d1c7ec, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: 364315a405c51dc44a6e10c361d1c7ec,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: 773a6cc3ede769840a0c005936ebe54d,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: 2a98f81f4ae53e04d8650a8f17214e83, type: 2}
+  - color: 2
+    material: {fileID: 2100000, guid: 58cff070b5368d445881e678c3b22a4c, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: 58cff070b5368d445881e678c3b22a4c,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: ec8b1bf2422e27f44860a66bfb535bbc,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: 4f262abb43bd3cb42aa6440fa460d86e, type: 2}
+  - color: 5
+    material: {fileID: 2100000, guid: 2361a7a7710f6b94b923ee43bd4e42d1, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: 2361a7a7710f6b94b923ee43bd4e42d1,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: 6f62b0e62fecc6946bcbc6763277f952,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: eac47575860f62f4cb7499e0e8e90a1b, type: 2}
+  - color: 4
+    material: {fileID: 2100000, guid: f559cea7ff0e8b44a88bb60e069e00d2, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: f559cea7ff0e8b44a88bb60e069e00d2,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: 0e0fd4def5c1e374d8123d8c7e8a47d1,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: 9af6994f419f1a841b2d7c97517c76d8, type: 2}
+  - color: 0
+    material: {fileID: 2100000, guid: 4086264b0cb6e7049a123e255ce68d4e, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: 4086264b0cb6e7049a123e255ce68d4e,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: e2213ed351232384595afe5bdfde8bcd,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: 7c18e4717e38a5148bfabf0f4ac43dfd, type: 2}
+  - color: 3
+    material: {fileID: 2100000, guid: 76032fd5d15cbf044ab91bc9d88b60dc, type: 2}
+    accessibleSeatMaterial: {fileID: 2100000, guid: 76032fd5d15cbf044ab91bc9d88b60dc,
+      type: 2}
+    inaccessibleSeatMaterial: {fileID: 2100000, guid: 28b0903481bab564ea5e2db6fde2ef6c,
+      type: 2}
+    peopleMaterial: {fileID: 2100000, guid: 390b54da0dbdc7f4cb3f5556265ff7b4, type: 2}
