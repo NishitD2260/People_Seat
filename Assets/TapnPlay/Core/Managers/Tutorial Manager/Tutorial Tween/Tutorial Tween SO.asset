@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23f1ab7c8f12a5419314f68c9885aed, type: 3}
+  m_Name: Tutorial Tween SO
+  m_EditorClassIdentifier: 
+  textBoxTweenDuration: 1
+  textBoxEase: 27
+  maskTweenDuration: 1
+  maskTweendelay: 0.25
+  maskEase: 28
+  handScaleTarget: 1.2
+  handScaleDuration: 0.6
+  handScaleEase: 1

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7a9456e2990504c90bda1a7d58f66f, type: 3}
+  m_Name: EconomyData
+  m_EditorClassIdentifier: 
+  BoosterCostsData: []
+  AvailableCurrencies:
+  - Type: 0
+    Amount: 100
+    Icon: {fileID: 21300000, guid: 88597d972b4024649ba76c79f7dd32cf, type: 3}
+  - Type: 1
+    Amount: 20
+    Icon: {fileID: 21300000, guid: 04ecf87e4f20c4082acfe440dbb0e973, type: 3}
+  RevivalCost: 200
+  levelWinRewards:
+    BasicReward:
+    - currencyType: 0
+      Amount: 50
+    BossReward:
+    - currencyType: 0
+      Amount: 100
+    BonusReward:
+    - currencyType: 1
+      Amount: 20

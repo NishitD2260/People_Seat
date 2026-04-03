@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3b2b3e49020aca458e66643b062ef8a, type: 3}
+  m_Name: DefaultTutorialData
+  m_EditorClassIdentifier: 
+  tutorial_Settings:
+    level_To_Display: 5
+  Steps:
+  - tutorial_Step_Settings:
+      tap_Anywhere: 0
+      step_Type: 0
+      time_To_Next_Step: 0
+    gif_Step_Settings:
+      show_GIF: 1
+      gif_Clip_Index: 0
+    text_Box_Settings:
+      text_Dis_Type: 0
+      screen_Pos: {x: 0, y: 0}
+      tutorial_Text: 
+      textBoxSize: 0
+    mask_OBJ_Settings:
+      maskObj_Dis_Type: 0
+      maskPos: []
+    hand_Settings:
+      hand_Dis_Type: 0
+      new_Positions: 0
+      hand_Positions: []
+    world_Object_Settings:
+      spawnData:
+      - prefab: {fileID: 0}
+        world_Position: {x: 0, y: 0, z: 0}
+        world_Rotation: {x: 0, y: 0, z: 0}

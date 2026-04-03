@@ -1,0 +1,10 @@
+{                                                    
+  "name": "com.tapnplay.tnp-template",               
+  "displayName": "Tap N Play Template",              
+  "version": "1.0.0",                               
+  "unity": "2021.3",                                
+  "description": "Core template assets and folders for Tap N Play Unity projects.", 
+  "author": { "name": "Tap N Play" },               
+  "keywords": ["template", "starter", "assets"],    
+  "type": "template"                                
+}                                                   

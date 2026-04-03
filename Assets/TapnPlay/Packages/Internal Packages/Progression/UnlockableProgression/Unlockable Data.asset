@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d80f01896e432045849d2392f4fadc7, type: 3}
+  m_Name: Unlockable Data
+  m_EditorClassIdentifier: 
+  Unlockables:
+  - UnlockableName: Frozen Bus
+    DisplayType: 0
+    BgIcon: {fileID: 21300000, guid: 9b4773dffbc8e4243b7633c07e34a9b9, type: 3}
+    IconFiller: {fileID: 21300000, guid: c3eea13e43f598d4f928df9fcd97264e, type: 3}
+    UnlockableIcon: {fileID: 21300000, guid: c3eea13e43f598d4f928df9fcd97264e, type: 3}
+    Mesh: {fileID: 7145741322242286347, guid: b78bf8688b5c493408ebf04c28b882d9, type: 3}
+    UnlockLevel: 5
+  - UnlockableName: Attached Bus
+    DisplayType: 0
+    BgIcon: {fileID: 21300000, guid: b55eb27a62123ed4d8bb26c0d3e9400e, type: 3}
+    IconFiller: {fileID: 21300000, guid: 943251da670845445802e5b1eccf8f9f, type: 3}
+    UnlockableIcon: {fileID: 21300000, guid: 943251da670845445802e5b1eccf8f9f, type: 3}
+    Mesh: {fileID: 7145741322242286347, guid: b78bf8688b5c493408ebf04c28b882d9, type: 3}
+    UnlockLevel: 12
+  - UnlockableName: Motor
+    DisplayType: 0
+    BgIcon: {fileID: 21300000, guid: 4e5864af4a9b30e41b4df0fcae234a00, type: 3}
+    IconFiller: {fileID: 21300000, guid: cdf64c197ed304341b3b0f1578965b05, type: 3}
+    UnlockableIcon: {fileID: 21300000, guid: cdf64c197ed304341b3b0f1578965b05, type: 3}
+    Mesh: {fileID: 7145741322242286347, guid: b78bf8688b5c493408ebf04c28b882d9, type: 3}
+    UnlockLevel: 21
