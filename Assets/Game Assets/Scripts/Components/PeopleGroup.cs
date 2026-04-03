@@ -87,6 +87,14 @@ public class PeopleGroup : MonoBehaviour, IInteractable
         ApplyStackDepthScale(animateScale);
     }
 
+    /// <summary>Disables further taps immediately while people are dispatched (lane removal may be delayed).</summary>
+    public void LockTapForDispatch()
+    {
+        isTappable = false;
+        if (tapCollider != null)
+            tapCollider.enabled = false;
+    }
+
     private void ApplyStackDepthScale(bool animate)
     {
         Vector3 target = isTappable

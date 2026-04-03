@@ -6,7 +6,6 @@ public enum GameState
 {
     Initializing,
     Playing,
-    Animating,
     Won,
     Lost
 }
@@ -32,6 +31,16 @@ public class GameManager : SingletonBase<GameManager>
     {
         DNDOnLoad = false;
         base.Awake();
+        ApplyTargetFrameRateToScreen();
+    }
+
+    private static void ApplyTargetFrameRateToScreen()
+    {
+        RefreshRate rr = Screen.currentResolution.refreshRateRatio;
+        int hz = Mathf.RoundToInt((float)rr.value);
+        if (hz < 1)
+            hz = 60;
+        Application.targetFrameRate = hz;
     }
 
     private void OnEnable()
@@ -66,12 +75,15 @@ public class GameManager : SingletonBase<GameManager>
 
     private void OnPeopleGroupTapped(object args)
     {
-        if (CurrentState != GameState.Playing) return;
+        if (CurrentState == GameState.Initializing ||
+            CurrentState == GameState.Won ||
+            CurrentState == GameState.Lost)
+            return;
 
         PeopleGroupTapData data = args as PeopleGroupTapData;
-        if (data == null) return;
+        if (data == null || data.Source == null) return;
 
-        CurrentState = GameState.Animating;
+        data.Source.LockTapForDispatch();
 
         // Find accessible seats of matching color
         List<Seat> accessibleSeats = SeatAccessibilityResolver.FindAccessibleSeats(gridManager, data.Color, data.Count);
@@ -80,7 +92,6 @@ public class GameManager : SingletonBase<GameManager>
         int toWaiting = data.Count - toSeat;
 
         Vector3 groupStartPos = data.Source.transform.position;
-        pendingLaneTapBatches = 0;
 
         int seatingAnimCount = 0;
         int waitingAnimCount = 0;
@@ -134,7 +145,6 @@ public class GameManager : SingletonBase<GameManager>
         {
             laneManager.RemoveTopGroup(data.LaneIndex);
             RefreshSeatAccessibilityVisuals();
-            CurrentState = GameState.Playing;
             CheckWinLose();
         }
         else
@@ -195,9 +205,6 @@ public class GameManager : SingletonBase<GameManager>
     private void MaybeSettleIfIdle()
     {
         if (pendingLaneTapBatches > 0 || pendingWaitingToSeat > 0) return;
-
-        if (CurrentState == GameState.Animating)
-            CurrentState = GameState.Playing;
 
         CheckWinLose();
     }

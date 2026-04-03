@@ -10,7 +10,7 @@ public class Seat : MonoBehaviour
 
     [Header("Accessibility visuals")]
     [Tooltip("Local scale multiplier when seat is not playable yet (inaccessible). 1 = same as base.")]
-    [SerializeField] [Range(0.3f, 1f)] private float inaccessibleScalePercent = 0.82f;
+    [SerializeField][Range(0.3f, 1f)] private float inaccessibleScalePercent = 0.82f;
 
     [Tooltip("If off, inaccessible state uses uniform XYZ scale. If on, only local Z (forward) shrinks — pivot at forward face (unfold along depth).")]
     [SerializeField] private bool shrinkHeightAxisOnly = true;
