@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -14,16 +13,46 @@ public class WaitingAreaManager : MonoBehaviour
     [SerializeField] private int maxPerRow = 5;
     [SerializeField] private float personSpacing = 0.8f;
     [SerializeField] private float rearrangeDuration = 0.2f;
+    [Tooltip("Wait this long after the waiting list changes before sliding people into grid slots. Another add/remove restarts the timer.")]
+    [SerializeField] private float rearrangeDelay = 0.15f;
+
+    [Header("Waiting count UI")]
+    [SerializeField] private float countPunchPeakScale = 1.12f;
+    [SerializeField] private float countPunchUpDuration = 0.1f;
+    [SerializeField] private float countPunchReturnDuration = 0.2f;
 
     private int capacity;
     private List<PersonView> waitingPeople = new List<PersonView>();
     private bool _suppressCountPunch;
+    private Tween _rearrangeScheduleTween;
+    private Vector3 _countTextBaseLocalScale = Vector3.one;
+    private bool _countTextBaseCaptured;
 
     public int CurrentCount => waitingPeople.Count;
+
+    private void Awake()
+    {
+        CaptureCountTextBaseScale();
+    }
+
+    private void OnDisable()
+    {
+        _rearrangeScheduleTween?.Kill(false);
+        _rearrangeScheduleTween = null;
+
+        if (countText != null)
+        {
+            countText.transform.DOKill();
+            if (_countTextBaseCaptured)
+                countText.transform.localScale = _countTextBaseLocalScale;
+        }
+    }
 
     public void Initialize(int capacity)
     {
         this.capacity = capacity;
+        _rearrangeScheduleTween?.Kill(false);
+        _rearrangeScheduleTween = null;
         waitingPeople.Clear();
         _suppressCountPunch = true;
         UpdateUI();
@@ -41,6 +70,7 @@ public class WaitingAreaManager : MonoBehaviour
 
         UpdateUI();
         EventController.TriggerEvent(GameEvent.EVENT_WAITING_AREA_UPDATED, CurrentCount);
+        ScheduleRearrangeWaitingPeople();
     }
 
     public PersonView RemovePerson(SeatColor color)
@@ -52,8 +82,8 @@ public class WaitingAreaManager : MonoBehaviour
                 PersonView p = waitingPeople[i];
                 waitingPeople.RemoveAt(i);
                 p.transform.SetParent(null);
-                RearrangeWaitingPeople();
                 UpdateUI();
+                ScheduleRearrangeWaitingPeople();
                 return p;
             }
         }
@@ -105,8 +135,22 @@ public class WaitingAreaManager : MonoBehaviour
         return basePos + new Vector3(xOffset, 0f, zOffset);
     }
 
-    private void RearrangeWaitingPeople()
+    private void ScheduleRearrangeWaitingPeople()
     {
+        _rearrangeScheduleTween?.Kill(false);
+        _rearrangeScheduleTween = null;
+
+        if (waitingPeople.Count == 0) return;
+
+        _rearrangeScheduleTween = DOVirtual.DelayedCall(rearrangeDelay, ExecuteRearrangeWaitingPeople)
+            .SetLink(gameObject);
+    }
+
+    private void ExecuteRearrangeWaitingPeople()
+    {
+        _rearrangeScheduleTween = null;
+        if (waitingPeople.Count == 0) return;
+
         for (int i = 0; i < waitingPeople.Count; i++)
         {
             PersonView person = waitingPeople[i];
@@ -118,16 +162,33 @@ public class WaitingAreaManager : MonoBehaviour
         }
     }
 
+    private void CaptureCountTextBaseScale()
+    {
+        if (countText == null || _countTextBaseCaptured) return;
+        _countTextBaseLocalScale = countText.transform.localScale;
+        _countTextBaseCaptured = true;
+    }
+
     private void UpdateUI()
     {
         if (countText != null)
         {
+            CaptureCountTextBaseScale();
             countText.text = $"{waitingPeople.Count}/{capacity}";
             if (!_suppressCountPunch)
-            {
-                countText.transform.DOKill();
-                countText.transform.DOPunchScale(Vector3.one * 0.08f, 0.25f, vibrato: 6, elasticity: 0.58f);
-            }
+                PlayCountTextScalePunch();
         }
+    }
+
+    private void PlayCountTextScalePunch()
+    {
+        Transform t = countText.transform;
+        t.DOKill();
+
+        Vector3 b = _countTextBaseLocalScale;
+        Sequence seq = DOTween.Sequence();
+        seq.Append(t.DOScale(b * countPunchPeakScale, countPunchUpDuration).SetEase(Ease.OutQuad));
+        seq.Append(t.DOScale(b, countPunchReturnDuration).SetEase(Ease.OutQuad));
+        seq.SetLink(gameObject);
     }
 }

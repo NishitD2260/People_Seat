@@ -15,6 +15,8 @@ public class LaneManager : MonoBehaviour
 
     private List<PeopleGroup>[] lanes;
 
+    private const string LaneLocalMoveTweenId = "LaneLocalMove";
+
     public void BuildLanes(List<LaneData> laneDataList, ColorThemeConfig theme)
     {
         ClearLanes();
@@ -74,8 +76,8 @@ public class LaneManager : MonoBehaviour
         // Enable next top group
         if (lane.Count > 0)
         {
-            lane[0].SetTappable(true);
             AnimateLaneShift(laneIndex);
+            lane[0].SetTappable(true, animateScale: true);
         }
 
         EventController.TriggerEvent(GameEvent.EVENT_WAITING_AREA_UPDATED);
@@ -86,11 +88,12 @@ public class LaneManager : MonoBehaviour
         var lane = lanes[laneIndex];
         for (int i = 0; i < lane.Count; i++)
         {
-            Vector3 targetPos = new Vector3(0f, 0f, -i * groupSpacing);
             Transform gt = lane[i].transform;
-            gt.DOKill();
-            gt.DOLocalMove(targetPos, 0.32f).SetEase(Ease.OutBack);
-            gt.DOPunchScale(Vector3.one * 0.08f, 0.18f, vibrato: 5, elasticity: 0.52f);
+            DOTween.Kill(gt, LaneLocalMoveTweenId, false);
+            Vector3 targetPos = new Vector3(0f, 0f, -i * groupSpacing);
+            gt.DOLocalMove(targetPos, 0.32f)
+                .SetEase(Ease.OutBack)
+                .SetId(LaneLocalMoveTweenId);
         }
     }
 

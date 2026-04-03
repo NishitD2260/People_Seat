@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tapCollider: {fileID: 5574215594044806987}
+  nonTappableScale: 0.7
+  tappableScaleTweenDuration: 0.25
 --- !u!65 &5574215594044806987
 BoxCollider:
   m_ObjectHideFlags: 0

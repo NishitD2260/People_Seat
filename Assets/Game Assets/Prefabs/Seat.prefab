@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMesh: {fileID: 6334949215820774836}
-  inaccessibleScalePercent: 0.3
+  inaccessibleScalePercent: 0.5
   shrinkHeightAxisOnly: 1
-  scaleUpDuration: 0.38
-  scaleDownDuration: 0.26
+  scaleUpDuration: 0.25
+  scaleDownDuration: 0.2
   scaleUpEase: 27
   scaleDownEase: 4
 --- !u!1 &8489568427998475809

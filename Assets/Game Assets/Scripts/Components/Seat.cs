@@ -12,7 +12,7 @@ public class Seat : MonoBehaviour
     [Tooltip("Local scale multiplier when seat is not playable yet (inaccessible). 1 = same as base.")]
     [SerializeField] [Range(0.3f, 1f)] private float inaccessibleScalePercent = 0.82f;
 
-    [Tooltip("If on, only local Y scales for inaccessible state (pivot at top of mesh). If off, uniform XYZ.")]
+    [Tooltip("If off, inaccessible state uses uniform XYZ scale. If on, only local Z (forward) shrinks — pivot at forward face (unfold along depth).")]
     [SerializeField] private bool shrinkHeightAxisOnly = true;
 
     [Tooltip("Scale-up when seat becomes active (playable) — OutBack gives the punch.")]
@@ -30,8 +30,8 @@ public class Seat : MonoBehaviour
     private bool _hasBaseScale;
 
     private Renderer _renderer;
-    private Vector3 _lockedTopWorld;
-    private bool _hasLockedTop;
+    private Vector3 _lockedAnchorWorld;
+    private bool _hasLockedAnchor;
 
     public SeatColor Color { get; private set; }
     public int Row { get; private set; }
@@ -102,38 +102,58 @@ public class Seat : MonoBehaviour
         _hasBaseScale = true;
     }
 
-    private static Vector3 TopCenterWorld(Bounds b)
+    /// <summary>Center of the renderer AABB face most aligned with <paramref name="forward"/> (seat scales around this world point).</summary>
+    private static Vector3 ForwardFaceCenterWorld(Bounds b, Vector3 forward)
     {
-        return new Vector3(b.center.x, b.max.y, b.center.z);
+        if (forward.sqrMagnitude < 1e-6f)
+            forward = Vector3.forward;
+        forward.Normalize();
+
+        Vector3 c = b.center;
+        Vector3 e = b.extents;
+        float ax = Mathf.Abs(forward.x);
+        float ay = Mathf.Abs(forward.y);
+        float az = Mathf.Abs(forward.z);
+
+        Vector3 face = c;
+        if (ax >= ay && ax >= az)
+            face.x = c.x + Mathf.Sign(forward.x) * e.x;
+        else if (ay >= az)
+            face.y = c.y + Mathf.Sign(forward.y) * e.y;
+        else
+            face.z = c.z + Mathf.Sign(forward.z) * e.z;
+        return face;
     }
 
-    private void CaptureLockedTopFromCurrentPose()
+    private void CaptureLockedAnchorFromCurrentPose()
     {
         EnsureRenderer();
         if (_renderer == null)
         {
-            _hasLockedTop = false;
+            _hasLockedAnchor = false;
             return;
         }
 
-        _lockedTopWorld = TopCenterWorld(_renderer.bounds);
-        _hasLockedTop = true;
+        _lockedAnchorWorld = ForwardFaceCenterWorld(_renderer.bounds, transform.forward);
+        _hasLockedAnchor = true;
     }
 
     private Vector3 GetTargetLocalScale(bool isAccessible)
     {
         float m = isAccessible ? 1f : inaccessibleScalePercent;
-        if (shrinkHeightAxisOnly)
-            return Vector3.Scale(_baseLocalScale, new Vector3(1f, m, 1f));
-        return _baseLocalScale * m;
+        if (!shrinkHeightAxisOnly)
+            return _baseLocalScale * m;
+
+        // Local X = width, Y = up (unchanged), Z = forward — pivot on forward face keeps front stable while depth folds.
+        return Vector3.Scale(_baseLocalScale, new Vector3(1f, 1f, m));
     }
 
-    private void SnapTransformToLockedTop()
+    private void SnapTransformToLockedAnchor()
     {
-        if (!_hasLockedTop || _renderer == null) return;
+        if (!_hasLockedAnchor || _renderer == null) return;
 
-        Vector3 topNow = TopCenterWorld(_renderer.bounds);
-        transform.position += _lockedTopWorld - topNow;
+        Vector3 anchorNow = ForwardFaceCenterWorld(_renderer.bounds, transform.forward);
+        transform.position += _lockedAnchorWorld - anchorNow;
     }
 
     private void TweenAccessibilityScale(bool isAccessible, bool immediate)
@@ -144,12 +164,12 @@ public class Seat : MonoBehaviour
 
         var target = GetTargetLocalScale(isAccessible);
 
-        CaptureLockedTopFromCurrentPose();
+        CaptureLockedAnchorFromCurrentPose();
 
         if (immediate)
         {
             transform.localScale = target;
-            SnapTransformToLockedTop();
+            SnapTransformToLockedAnchor();
             return;
         }
 
@@ -158,7 +178,7 @@ public class Seat : MonoBehaviour
 
         transform.DOScale(target, duration)
             .SetEase(ease)
-            .OnUpdate(SnapTransformToLockedTop)
+            .OnUpdate(SnapTransformToLockedAnchor)
             .SetLink(gameObject);
     }
 
@@ -207,11 +227,11 @@ public class Seat : MonoBehaviour
 
         transform.DOKill();
 
-        CaptureLockedTopFromCurrentPose();
+        CaptureLockedAnchorFromCurrentPose();
 
         transform.DOScale(_baseLocalScale, scaleUpDuration)
             .SetEase(scaleUpEase)
-            .OnUpdate(SnapTransformToLockedTop)
+            .OnUpdate(SnapTransformToLockedAnchor)
             .SetLink(gameObject);
     }
 

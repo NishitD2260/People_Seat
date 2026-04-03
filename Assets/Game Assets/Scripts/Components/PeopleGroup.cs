@@ -14,13 +14,19 @@ public class PeopleGroupTapData
 public class PeopleGroup : MonoBehaviour, IInteractable
 {
     [SerializeField] private BoxCollider tapCollider;
+    [Tooltip("Uniform scale multiplier while this group is behind the tappable (front) group in its lane.")]
+    [SerializeField] private float nonTappableScale = 0.7f;
+    [SerializeField] private float tappableScaleTweenDuration = 0.28f;
 
     public SeatColor Color { get; private set; }
     public int LaneIndex { get; private set; }
     public int PeopleCount => people.Count;
 
+    private const string StackScaleTweenId = "PeopleGroupStackScale";
+
     private List<PersonView> people = new List<PersonView>();
     private bool isTappable;
+    private Vector3 visualBaseLocalScale = Vector3.one;
 
     public void Initialize(PeopleGroupData data, int laneIndex, ColorThemeConfig theme, GameObject personPrefab)
     {
@@ -50,6 +56,8 @@ public class PeopleGroup : MonoBehaviour, IInteractable
             tapCollider = gameObject.AddComponent<BoxCollider>();
 
         UpdateColliderBounds();
+
+        visualBaseLocalScale = transform.localScale;
     }
 
     private Vector3 GetClusterPosition(int index, int total)
@@ -71,11 +79,29 @@ public class PeopleGroup : MonoBehaviour, IInteractable
         tapCollider.size = new Vector3(width, 1f, 1f);
     }
 
-    public void SetTappable(bool value)
+    public void SetTappable(bool value, bool animateScale = false)
     {
         isTappable = value;
         if (tapCollider != null)
             tapCollider.enabled = value;
+        ApplyStackDepthScale(animateScale);
+    }
+
+    private void ApplyStackDepthScale(bool animate)
+    {
+        Vector3 target = isTappable
+            ? visualBaseLocalScale
+            : visualBaseLocalScale * nonTappableScale;
+
+        DOTween.Kill(transform, StackScaleTweenId, false);
+        if (animate && tappableScaleTweenDuration > 0f)
+        {
+            transform.DOScale(target, tappableScaleTweenDuration)
+                .SetEase(Ease.OutBack)
+                .SetId(StackScaleTweenId);
+        }
+        else
+            transform.localScale = target;
     }
 
     public PersonView ReleaseTopPerson()

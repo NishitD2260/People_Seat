@@ -163,33 +163,29 @@ public class GameManager : SingletonBase<GameManager>
 
     private void TryPlaceWaitingPeople()
     {
+        // At most one new walk per call — multiple calls (e.g. each OnSomeoneSeated) can overlap; no need to wait for prior waiting→seat anim.
         List<SeatColor> waitingColors = waitingAreaManager.GetDistinctWaitingColors();
         bool anyPlaced = false;
 
         foreach (SeatColor color in waitingColors)
         {
-            int waitingCount = waitingAreaManager.CountPeopleOfColor(color);
-            if (waitingCount == 0) continue;
+            if (waitingAreaManager.CountPeopleOfColor(color) == 0) continue;
 
-            List<Seat> seats = SeatAccessibilityResolver.FindAccessibleSeats(gridManager, color, waitingCount);
+            List<Seat> seats = SeatAccessibilityResolver.FindAccessibleSeats(gridManager, color, 1);
             if (seats.Count == 0) continue;
 
-            anyPlaced = true;
-            for (int i = 0; i < seats.Count; i++)
-            {
-                PersonView person = waitingAreaManager.RemovePerson(color);
-                if (person == null) break;
+            PersonView person = waitingAreaManager.RemovePerson(color);
+            if (person == null) break;
 
-                pendingWaitingToSeat++;
-                Seat targetSeat = seats[i];
-                movementController.AnimateWaitingToSeat(person, targetSeat, () =>
-                {
-                    pendingWaitingToSeat--;
-                    TryPlaceWaitingPeople();
-                    MaybeSettleIfIdle();
-                });
-            }
-            break; // Process one color at a time for cleaner animation
+            anyPlaced = true;
+            pendingWaitingToSeat++;
+            movementController.AnimateWaitingToSeat(person, seats[0], () =>
+            {
+                pendingWaitingToSeat--;
+                TryPlaceWaitingPeople();
+                MaybeSettleIfIdle();
+            });
+            break;
         }
 
         if (!anyPlaced)
