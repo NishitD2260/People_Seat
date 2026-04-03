@@ -16,6 +16,16 @@
       "dependencies": {},
       "hash": "33356da2c43fa28397192baee70910c978e3169f"
     },
+    "com.coplaydev.unity-mcp": {
+      "version": "https://github.com/CoplayDev/unity-mcp.git?path=/MCPForUnity#main",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.test-framework": "1.1.31"
+      },
+      "hash": "940831fe8a474e92b96a5c183298b45843cf067e"
+    },
     "com.unity.2d.animation": {
       "version": "9.2.0",
       "depth": 1,
@@ -202,6 +212,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.nuget.newtonsoft-json": {
+      "version": "3.2.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
     "com.unity.recorder": {
       "version": "4.0.3",
       "depth": 0,
@@ -308,13 +325,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "jillejr.newtonsoft.json-for-unity": {
-      "version": "https://github.com/jilleJr/Newtonsoft.Json-for-Unity.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "f2c6cb09817832dccd0600f291053d8d55298ee9"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

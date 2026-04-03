@@ -122,6 +122,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &71456262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71456263}
+  - component: {fileID: 71456265}
+  - component: {fileID: 71456264}
+  m_Layer: 0
+  m_Name: Lane_Tap_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &71456263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71456262}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2036964730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &71456264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71456262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e3fba899e15c4797ceb89ebf77a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flow: {fileID: 2036964731}
+  laneIndex: 1
+--- !u!65 &71456265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71456262}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &98734213
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 2392002569092190445, guid: 123c2e6d82f5dfc4097495271a2cdffa,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2750338278260365662, guid: 123c2e6d82f5dfc4097495271a2cdffa,
         type: 3}
@@ -439,6 +507,7 @@ Transform:
   - {fileID: 1646885138}
   - {fileID: 1553337336}
   - {fileID: 8661078064862899312}
+  - {fileID: 2036964730}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &247416942
@@ -970,8 +1039,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 1}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.47939658, g: 0.49938667, b: 0.5943396, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1253,6 +1322,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1483865807}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1709315068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709315069}
+  - component: {fileID: 1709315071}
+  - component: {fileID: 1709315070}
+  m_Layer: 0
+  m_Name: Lane_Tap_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709315069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709315068}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5, y: 0.5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2036964730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709315070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709315068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e3fba899e15c4797ceb89ebf77a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flow: {fileID: 2036964731}
+  laneIndex: 0
+--- !u!65 &1709315071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709315068}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1796294357 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2589876555692250244, guid: ded13d0c7a6b4d045a5e0cc88e2b1ad4,
@@ -1265,6 +1402,89 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7757566850399542931}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2036964729
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2036964730}
+  - component: {fileID: 2036964731}
+  - component: {fileID: 2036964732}
+  m_Layer: 0
+  m_Name: PeopleSeat_Gameplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2036964730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036964729}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2101052442}
+  - {fileID: 1709315069}
+  - {fileID: 71456263}
+  m_Father: {fileID: 204753232}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036964731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036964729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d5b1c64f95abd4f9e78e6ecabfbf73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 11400000, guid: 489399cb0f1e3924d8a7adb3c32df6fe, type: 2}
+--- !u!114 &2036964732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036964729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31eb7cb30d743664f8604cced4a6b6f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flow: {fileID: 0}
+  levelOverride: {fileID: 0}
+  seatPrefab: {fileID: 4577755959369341440, guid: f2f13ea9221b4a14193e88da91d6c55a,
+    type: 3}
+  redSeatMaterial: {fileID: 2100000, guid: 4086264b0cb6e7049a123e255ce68d4e, type: 2}
+  blueSeatMaterial: {fileID: 2100000, guid: 364315a405c51dc44a6e10c361d1c7ec, type: 2}
+  yellowSeatMaterial: {fileID: 2100000, guid: 76032fd5d15cbf044ab91bc9d88b60dc, type: 2}
+  pinkSeatMaterial: {fileID: 2100000, guid: 2361a7a7710f6b94b923ee43bd4e42d1, type: 2}
+  greenSeatMaterial: {fileID: 2100000, guid: 58cff070b5368d445881e678c3b22a4c, type: 2}
+  orangeSeatMaterial: {fileID: 2100000, guid: f559cea7ff0e8b44a88bb60e069e00d2, type: 2}
+  seatRoot: {fileID: 0}
+  laneRoot: {fileID: 0}
+  seatOrigin: {x: 0, y: 0, z: -2}
+  aisleHalfGap: 1.15
+  seatDepthSpacing: 1
+  rowSpacing: 1
+  topBottomGap: 1.4
+  laneOrigin: {x: 0, y: 0.15, z: -8}
+  laneSpacingX: 4.4
+  laneGroupSpacingZ: 1.2
+  personSpacing: 0.45
+  personScale: 0.32
 --- !u!1001 &2040243254
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,6 +1553,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6267663a43817974a95f02ad47c39aaa, type: 3}
+--- !u!1 &2101052441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101052442}
+  - component: {fileID: 2101052444}
+  - component: {fileID: 2101052443}
+  m_Layer: 0
+  m_Name: Lane_Tap_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2101052442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101052441}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: 0.5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2036964730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2101052443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101052441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e25e3fba899e15c4797ceb89ebf77a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flow: {fileID: 2036964731}
+  laneIndex: 2
+--- !u!65 &2101052444
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101052441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 1, z: 0.5}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2140657731
 PrefabInstance:
   m_ObjectHideFlags: 0

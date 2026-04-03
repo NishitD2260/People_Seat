@@ -1,0 +1,374 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c51c263bfa54fc149891fa2c2d60d3bd, type: 3}
+  m_Name: SeatingLevel-Sample
+  m_EditorClassIdentifier: 
+  WaitingAreaCapacity: 10
+  GridBlueprint:
+    RowsBottom: 5
+    RowsTop: 4
+    ColsLeft: 3
+    ColsRight: 4
+    BottomLeft: 000000000200000004000000000000000200000004000000000000000200000004000000000000000200000004000000000000000200000004000000
+    TopLeft: 010000000200000005000000010000000200000005000000010000000200000005000000010000000200000005000000
+    BottomRight: 0300000001000000050000000100000003000000010000000500000001000000030000000100000005000000010000000300000001000000050000000100000003000000010000000500000001000000
+    TopRight: 00000000020000000300000004000000000000000200000003000000040000000000000002000000030000000400000000000000020000000300000004000000
+  Seats:
+  - SeatId: 0
+    Color: 0
+    AisleProgress: 0
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 1
+    Color: 0
+    AisleProgress: 1
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 0
+  - SeatId: 2
+    Color: 0
+    AisleProgress: 2
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 1
+  - SeatId: 3
+    Color: 0
+    AisleProgress: 3
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 4
+    Color: 0
+    AisleProgress: 4
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 3
+  - SeatId: 5
+    Color: 0
+    AisleProgress: 5
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 4
+  - SeatId: 6
+    Color: 0
+    AisleProgress: 6
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 5
+  - SeatId: 7
+    Color: 0
+    AisleProgress: 7
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 8
+    Color: 0
+    AisleProgress: 8
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 7
+  - SeatId: 9
+    Color: 0
+    AisleProgress: 9
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 8
+  - SeatId: 10
+    Color: 0
+    AisleProgress: 10
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 11
+    Color: 0
+    AisleProgress: 11
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 10
+  - SeatId: 12
+    Color: 0
+    AisleProgress: 12
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 11
+  - SeatId: 13
+    Color: 0
+    AisleProgress: 13
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 12
+  - SeatId: 14
+    Color: 0
+    AisleProgress: 14
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 15
+    Color: 0
+    AisleProgress: 15
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 14
+  - SeatId: 16
+    Color: 0
+    AisleProgress: 16
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 15
+  - SeatId: 17
+    Color: 0
+    AisleProgress: 17
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 18
+    Color: 0
+    AisleProgress: 18
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 17
+  - SeatId: 19
+    Color: 0
+    AisleProgress: 19
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 18
+  - SeatId: 20
+    Color: 0
+    AisleProgress: 20
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 19
+  - SeatId: 21
+    Color: 0
+    AisleProgress: 21
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 22
+    Color: 0
+    AisleProgress: 22
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 21
+  - SeatId: 23
+    Color: 0
+    AisleProgress: 23
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 22
+  - SeatId: 24
+    Color: 0
+    AisleProgress: 24
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 25
+    Color: 0
+    AisleProgress: 25
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 24
+  - SeatId: 26
+    Color: 0
+    AisleProgress: 26
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 25
+  - SeatId: 27
+    Color: 0
+    AisleProgress: 27
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 26
+  - SeatId: 28
+    Color: 0
+    AisleProgress: 28
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 29
+    Color: 0
+    AisleProgress: 29
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 28
+  - SeatId: 30
+    Color: 0
+    AisleProgress: 30
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 29
+  - SeatId: 31
+    Color: 0
+    AisleProgress: 31
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 32
+    Color: 0
+    AisleProgress: 32
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 31
+  - SeatId: 33
+    Color: 0
+    AisleProgress: 33
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 32
+  - SeatId: 34
+    Color: 0
+    AisleProgress: 34
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 33
+  - SeatId: 35
+    Color: 0
+    AisleProgress: 35
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 36
+    Color: 0
+    AisleProgress: 36
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 35
+  - SeatId: 37
+    Color: 0
+    AisleProgress: 37
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 36
+  - SeatId: 38
+    Color: 0
+    AisleProgress: 38
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 39
+    Color: 0
+    AisleProgress: 39
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 38
+  - SeatId: 40
+    Color: 0
+    AisleProgress: 40
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 39
+  - SeatId: 41
+    Color: 0
+    AisleProgress: 41
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 40
+  - SeatId: 42
+    Color: 0
+    AisleProgress: 42
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 43
+    Color: 0
+    AisleProgress: 43
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 42
+  - SeatId: 44
+    Color: 0
+    AisleProgress: 44
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 43
+  - SeatId: 45
+    Color: 0
+    AisleProgress: 45
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 46
+    Color: 0
+    AisleProgress: 46
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 45
+  - SeatId: 47
+    Color: 0
+    AisleProgress: 47
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 46
+  - SeatId: 48
+    Color: 0
+    AisleProgress: 48
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 47
+  - SeatId: 49
+    Color: 0
+    AisleProgress: 49
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 50
+    Color: 0
+    AisleProgress: 50
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 49
+  - SeatId: 51
+    Color: 0
+    AisleProgress: 51
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 50
+  - SeatId: 52
+    Color: 0
+    AisleProgress: 52
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 53
+    Color: 0
+    AisleProgress: 53
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 52
+  - SeatId: 54
+    Color: 0
+    AisleProgress: 54
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 53
+  - SeatId: 55
+    Color: 0
+    AisleProgress: 55
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 54
+  - SeatId: 56
+    Color: 0
+    AisleProgress: 56
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 57
+    Color: 0
+    AisleProgress: 57
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 56
+  - SeatId: 58
+    Color: 0
+    AisleProgress: 58
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 57
+  - SeatId: 59
+    Color: 0
+    AisleProgress: 59
+    DepthFromAisle: 0
+    TowardAisleSeatIndex: -1
+  - SeatId: 60
+    Color: 0
+    AisleProgress: 60
+    DepthFromAisle: 1
+    TowardAisleSeatIndex: 59
+  - SeatId: 61
+    Color: 0
+    AisleProgress: 61
+    DepthFromAisle: 2
+    TowardAisleSeatIndex: 60
+  - SeatId: 62
+    Color: 0
+    AisleProgress: 62
+    DepthFromAisle: 3
+    TowardAisleSeatIndex: 61
+  Lanes:
+  - GroupsFrontToBack:
+    - Color: 0
+      Count: 4
+    - Color: 0
+      Count: 5
+    - Color: 2
+      Count: 5
+    - Color: 3
+      Count: 5
+    - Color: 5
+      Count: 4
+  - GroupsFrontToBack:
+    - Color: 1
+      Count: 4
+    - Color: 2
+      Count: 4
+    - Color: 3
+      Count: 4
+    - Color: 1
+      Count: 4
+    - Color: 5
+      Count: 5
+  - GroupsFrontToBack:
+    - Color: 2
+      Count: 4
+    - Color: 1
+      Count: 4
+    - Color: 4
+      Count: 4
+    - Color: 4
+      Count: 5
+    - Color: 1
+      Count: 2
